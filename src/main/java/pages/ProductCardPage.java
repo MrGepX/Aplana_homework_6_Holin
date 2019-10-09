@@ -28,8 +28,6 @@ public class ProductCardPage extends BasePage {
         }
     }
 
-
-
     @FindBy (xpath = "//div [@class = 'price-item-description']")
     private WebElement description;
 
@@ -57,13 +55,15 @@ public class ProductCardPage extends BasePage {
     public void setWarranty(int years) {
         Select select = new Select(warrantySelector);
         select.selectByIndex(years);
+        object.setWarranty(select.getFirstSelectedOption().getText().trim());
         waitForElement(changePriceConfirm);
-        object.setPrice(Integer.parseInt(price.getText().replaceAll("\\s+","")));
+        object.setPriceWithWarranty(Integer.parseInt(price.getText().replaceAll("\\s+","")));
     }
 
     public void addToBasket(){
         addToBasket.click();
         waitForElement(addToBasketConfirm);
         basket.add(object);
+
     }
 }

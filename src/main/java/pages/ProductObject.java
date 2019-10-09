@@ -5,6 +5,15 @@ public class ProductObject {
     private int price;
     private String warranty;
     private String description;
+    private int priceWithWarranty;
+
+    public int getPriceWithWarranty() {
+        return priceWithWarranty;
+    }
+
+    public void setPriceWithWarranty(int priceWithWarranty) {
+        this.priceWithWarranty = priceWithWarranty;
+    }
 
     public String getName() {
         return name;
